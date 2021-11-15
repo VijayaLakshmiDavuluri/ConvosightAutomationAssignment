@@ -1,0 +1,21 @@
+{
+    "searchterms": [
+        "P",
+        "Pr",
+        "Pri",
+        "Printed"
+    ],
+    "selectitems":[
+    
+        "Blouse",
+        "shirt",
+        "chiffon",
+        "skirt",
+        "printed dress"
+    
+    ],
+    "srchText":"Search",
+    "noResultError":"No results were found for your search",
+    "filename":"openstitch.jpeg",
+    "Nofile":"No file selected"
+}

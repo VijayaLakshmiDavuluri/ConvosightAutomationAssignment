@@ -1,0 +1,17 @@
+{
+"search":"#search_query_top",
+"searchClick":"[name='submit_search']",
+"Heading":".page-heading",
+"Noresults":".alert.alert-warning",
+"sortFilter":"#productsSortForm",
+"ItemList":"#center_column>ul>li",
+"ItemLink":".product_img_link",
+"ContactUs":"#contact-link",
+"FileInput":".filename",
+"uploadFile":"#fileUpload",
+"addtoCart":"#add_to_cart",
+"ContinueShoping":".continue.btn",
+"ViewCart":"[title='View my shopping cart']",
+"IndTotalPrice":"td.cart_total>.price",
+"TotalPrice":"#total_product"
+}

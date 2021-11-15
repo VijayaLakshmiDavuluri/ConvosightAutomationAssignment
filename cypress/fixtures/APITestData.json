@@ -1,0 +1,22 @@
+{
+
+    "newUser":{
+        "firstName": "Vj",
+        "lastName": "Dayu",
+        "email": "vjdayu@gmail.com",
+        "password": "string1234"
+    },
+    "addContact":{
+        "firstName": "Vj",
+        "lastName": "Da",
+        "birthdate": "1966-12-01",
+        "email": "vjdayu@gmail.com",
+        "phone": "34567890",
+        "street1": "DC",
+        "street2": "",
+        "city": "Hyderabad",
+        "stateProvince": "Telangana",
+        "postalCode": "500019",
+        "country": "India"
+    }
+}
