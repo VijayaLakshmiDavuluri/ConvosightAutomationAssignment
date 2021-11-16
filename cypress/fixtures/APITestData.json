@@ -1,16 +1,16 @@
 {
 
     "newUser":{
-        "firstName": "automateAdduser",
-        "lastName": "something",
-        "email": "automateAdduser@nowhere.com",
-        "password": "string1234"
+        "firstName": "funnymail",
+        "lastName": "lastofall",
+        "email": "_itsfunnyhowthiscanbeexistingmail@funny.com",
+        "password": "ConvoAuto1234"
     },
     "addContact":{
-        "firstName": "automateAdduser",
-        "lastName": "something",
+        "firstName": "funnymail",
+        "lastName": "lastofall",
         "birthdate": "1966-12-01",
-        "email": "automateAdduser@nowhere.com",
+        "email": "_itsfunnyhowthiscanbeexistingmail@funny.com",
         "phone": "34567890",
         "street1": "DC",
         "street2": "",

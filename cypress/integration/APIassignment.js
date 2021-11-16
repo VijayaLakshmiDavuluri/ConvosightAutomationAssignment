@@ -17,7 +17,7 @@ describe("Automating Automation Practice site - Convosight assignment", () => {
             expect(response.status).to.eq(201);
             cy.log(response.body.user)
             token= response.body.token
-            PostUserData=response1.body.user
+            PostUserData=response.body.user
             expect(Object.values(PostUserData)).to.not.contain(null)
             expect(Object.values(PostUserData)).to.not.contain("undefined")
         });
@@ -27,7 +27,7 @@ describe("Automating Automation Practice site - Convosight assignment", () => {
             url: APIbaseUrl+"users/me",
             method: 'GET',
             header: {
-                Authorization : "Bearer "+ token
+                Authorization : `Bearer ${token}`
             }
         }).then(response1 => {
             expect(response1.status).to.eq(201);
@@ -48,7 +48,8 @@ describe("Automating Automation Practice site - Convosight assignment", () => {
                 Authorization : "@@@"+token 
             }
         }).then(response1 => {
-            expect(response1.status).to.eq(400);
+            expect(response1.status).to.eq(401);
+            expect(response.body.error).to.eql("Please authenticate.")
         });
     })
 
