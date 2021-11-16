@@ -1,7 +1,11 @@
-var Token
+var token
 var random=Cypress._.random(0, 100)
+const { expect } = require("chai")
 var Testdata = require("../fixtures/APITestData.json")
 var APIbaseUrl = Cypress.config().APIbaseUrl
+var PostUserData
+var contactId
+var addContact
 describe("Automating Automation Practice site - Convosight assignment", () => {
 
     it("Add User , POST API.", () => {
@@ -10,10 +14,12 @@ describe("Automating Automation Practice site - Convosight assignment", () => {
             method: 'POST',
             body: Testdata.newUser
         }).then(response => {
-            expect(response.status).to.eq(200);
+            expect(response.status).to.eq(201);
             cy.log(response.body.user)
-            Token= response.body.token
-
+            token= response.body.token
+            PostUserData=response1.body.user
+            expect(Object.values(PostUserData)).to.not.contain(null)
+            expect(Object.values(PostUserData)).to.not.contain("undefined")
         });
     })
     it("Fetch User , GET API", () => {
@@ -21,13 +27,31 @@ describe("Automating Automation Practice site - Convosight assignment", () => {
             url: APIbaseUrl+"users/me",
             method: 'GET',
             header: {
-                Authorization : 'Bearer ' + Token
+                Authorization : "Bearer "+ token
             }
-        }).then(response => {
-            expect(response.status).to.eq(201);
-            cy.log(response.body)
+        }).then(response1 => {
+            expect(response1.status).to.eq(201);
+            cy.log(response1.body)
+            //expect(response1.body).to.eql(PostUserData)
+           expect(response1.body.firstName).to.eql(PostUserData.firstName)
+           expect(response1.body.lastName).to.eql(PostUserData.lastName)
+           expect(response1.body.email).to.eql(PostUserData.email)
+      
+
         });
     })
+    it("Fetch User , GET API - Invalid Token", () => {
+        cy.request({
+            url: APIbaseUrl+"users/me",
+            method: 'GET',
+            header: {
+                Authorization : "@@@"+token 
+            }
+        }).then(response1 => {
+            expect(response1.status).to.eq(400);
+        });
+    })
+
 
     it("Add Contact , POST API", () => {
         cy.request({
@@ -35,26 +59,31 @@ describe("Automating Automation Practice site - Convosight assignment", () => {
             method: 'POST',
             header:
             {
-                Authorization : 'Bearer ' + Token
+                Authorization : 'Bearer ' + token
             },
             body: Testdata.addContact
         }).then(response => {
-            expect(response.status).to.eq(200);
+            expect(response.status).to.eq(201);
             cy.log(response.body)
+            contactId = response.body._id
+            addContact = response.body
         });
     })
        it("Update Contact , PUT API", () => {
+        Testdata.addContact.lastName = "UpdatedName"
             cy.request({
                 url: APIbaseUrl+`contacts/${contactId}`,
                 method: 'PUT',
                 header:
                 {
-                    Authorization : 'Bearer ' + Token
+                    Authorization : 'Bearer ' + token
                 },
+                body: Testdata.addContact
 
             }).then(response => {
                 expect(response.status).to.eq(200);
                 cy.log(response.body)
+                expect(response.body).to.not.eql(addContact)
             });
         })
         it("Delete Contact , DEL API", () => {
@@ -63,12 +92,12 @@ describe("Automating Automation Practice site - Convosight assignment", () => {
                 method: 'DELETE',
                 header:
                 {
-                    Authorization : 'Bearer ' + Token
+                    Authorization : 'Bearer ' + token
                 },
 
             }).then(response => {
-                expect(response.status).to.eq(200);
-                cy.log(response.body)
+                expect(response.status).to.eq(201);
+                expect(response.body).to.contain("Contact deleted")
             });
         })
         it("Get Contact , GET API", () => {
@@ -77,18 +106,12 @@ describe("Automating Automation Practice site - Convosight assignment", () => {
                 method: 'GET',
                 header:
                 {
-                    Authorization : 'Bearer ' + Token
+                    Authorization : 'Bearer ' + token
                 },
 
             }).then(response => {
-                expect(response.status).to.eq(200);
-                cy.log(response.body)
+                expect(response.status).to.eq(404);
             });
         })
-    //Validate firstName,lastName and email fields value returned by Fetch User api is same as provided while adding a user.
-    //Validate that no field has value as undefined or empty value.
-    //Validate user is not able to fetch user details with invalid token.
-    //Validate contact is added successfully using Add Contact API. Also, validate the response values for each field is correct.
-    //Validate contact is deleted successfully using Delete Contact API. Also, Validate Get Contact API returns error while fetching the deleted contact.
 
 })

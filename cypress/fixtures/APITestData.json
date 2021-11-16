@@ -1,16 +1,16 @@
 {
 
     "newUser":{
-        "firstName": "Vj",
-        "lastName": "Dayu",
-        "email": "vjdayu@gmail.com",
+        "firstName": "automateAdduser",
+        "lastName": "something",
+        "email": "automateAdduser@nowhere.com",
         "password": "string1234"
     },
     "addContact":{
-        "firstName": "Vj",
-        "lastName": "Da",
+        "firstName": "automateAdduser",
+        "lastName": "something",
         "birthdate": "1966-12-01",
-        "email": "vjdayu@gmail.com",
+        "email": "automateAdduser@nowhere.com",
         "phone": "34567890",
         "street1": "DC",
         "street2": "",
