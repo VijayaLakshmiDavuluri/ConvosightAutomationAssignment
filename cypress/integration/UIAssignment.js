@@ -47,7 +47,17 @@ describe("Automating Automation Practice site - Convosight assignment", () => {
         })
     })
     it("Validate user is able to apply the large size catalouge filter for T-shirt section.", () => {
-            //Incomplete
+            cy.get('#block_top_menu> ul>li>a').then((tshirt)=>{
+                for (var j = 0; j < tshirt.length; j++) {
+                    if(tshirt[j].getAttribute('title')=="T-shirts")
+                    {
+                        tshirt[j].click()
+                    }
+                    cy.get(identify.Heading).should('contain.text', Testdata.TShirt);
+
+                }
+            })
+            
     })
     it("Validate user is able to upload a file on contact us page.", () => {
         //Click on Contact us
