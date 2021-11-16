@@ -45,7 +45,7 @@ describe("Automating Automation Practice site - Convosight assignment", () => {
             url: APIbaseUrl+"users/me",
             method: 'GET',
             header: {
-                Authorization : "@@@"+token 
+                Authorization : `Auth ${token}`
             }
         }).then(response1 => {
             expect(response1.status).to.eq(401);
@@ -60,7 +60,7 @@ describe("Automating Automation Practice site - Convosight assignment", () => {
             method: 'POST',
             header:
             {
-                Authorization : 'Bearer ' + token
+                Authorization : `Bearer ${token}`
             },
             body: Testdata.addContact
         }).then(response => {
@@ -77,7 +77,7 @@ describe("Automating Automation Practice site - Convosight assignment", () => {
                 method: 'PUT',
                 header:
                 {
-                    Authorization : 'Bearer ' + token
+                    Authorization : `Bearer ${token}`
                 },
                 body: Testdata.addContact
 
@@ -93,7 +93,7 @@ describe("Automating Automation Practice site - Convosight assignment", () => {
                 method: 'DELETE',
                 header:
                 {
-                    Authorization : 'Bearer ' + token
+                    Authorization : `Bearer ${token}`
                 },
 
             }).then(response => {
@@ -107,7 +107,7 @@ describe("Automating Automation Practice site - Convosight assignment", () => {
                 method: 'GET',
                 header:
                 {
-                    Authorization : 'Bearer ' + token
+                    Authorization : `Bearer ${token}`
                 },
 
             }).then(response => {
