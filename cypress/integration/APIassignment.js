@@ -26,7 +26,7 @@ describe("Automating Automation Practice site - Convosight assignment", () => {
             url: APIbaseUrl+"users/me",
             method: 'GET',
             header: {
-                Authorization : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTk1NGQzYWE2YjM3ZTAwMTU0ZDI4OGUiLCJpYXQiOjE2MzcxNzQ1ODd9.UWWmMCwgkwoZW1LsbMpZ1qlKNXdGOMA0Xj4gcDu1c08"
+                Authorization : `Bearer ${token}`
             }
         }).then(response1 => {
             expect(response1.status).to.eq(201);
