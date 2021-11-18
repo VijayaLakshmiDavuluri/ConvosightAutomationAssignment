@@ -1,6 +1,13 @@
 name: 'First Github Actions Implementation'
 description: 'Attempt successfull'
+
 inputs:
+  GITHUB_TOKEN:
+    description: 'gthub token'
+    required: true
+  TENOR_TOKEN:
+    description: 'tenor API token'
+    required: true
 
 runs:
   using: 'node12'
