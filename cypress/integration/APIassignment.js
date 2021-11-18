@@ -1,14 +1,13 @@
-var token
-var random=Cypress._.random(0, 100)
-const { expect } = require("chai")
-var Testdata = require("../fixtures/APITestData.json")
-var APIbaseUrl = Cypress.config().APIbaseUrl
-var PostUserData
-var contactId
-var addContact
+let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTk1ZTE5ZmQ5MTU1NDAwMTVlMjc4ZTQiLCJpYXQiOjE2MzcyMTI1NzV9.oOJeypkeY2A0At20QCQULV012SS3b8FAduwL3oA8YYk"
+let random=Cypress._.random(0, 100)
+let Testdata = require("../fixtures/APITestData.json")
+let APIbaseUrl = Cypress.config().APIbaseUrl
+let PostUserData
+let contactId
+let addContact
 describe("Automating Automation Practice site - Convosight assignment", () => {
 
-    it("Add User , POST API.", () => {
+    xit("Add User , POST API.", () => {
         cy.request({
             url: APIbaseUrl+"users",
             method: 'POST',
@@ -27,7 +26,7 @@ describe("Automating Automation Practice site - Convosight assignment", () => {
             url: APIbaseUrl+"users/me",
             method: 'GET',
             header: {
-                Authorization : `Bearer ${token}`
+                Authorization : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTk1NGQzYWE2YjM3ZTAwMTU0ZDI4OGUiLCJpYXQiOjE2MzcxNzQ1ODd9.UWWmMCwgkwoZW1LsbMpZ1qlKNXdGOMA0Xj4gcDu1c08"
             }
         }).then(response1 => {
             expect(response1.status).to.eq(201);

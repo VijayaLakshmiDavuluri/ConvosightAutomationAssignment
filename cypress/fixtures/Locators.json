@@ -13,5 +13,6 @@
 "ContinueShoping":".continue.btn",
 "ViewCart":"[title='View my shopping cart']",
 "IndTotalPrice":"td.cart_total>.price",
-"TotalPrice":"#total_product"
+"TotalPrice":"#total_product",
+"TShirtCat":"#block_top_menu> ul>li>a"
 }
